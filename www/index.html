@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>AMD Modules</title>
+</head>
+<body>
+<script type="text/javascript" src="js/lib/require.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+define('higher_ground', {
+	name: 'Higher Ground',
+	address: '1214 Williston Road',
+	city: 'Burlington',
+	state: 'Vermont'
+});
+
+require(['higher_ground'], function(venue) {
+	document.write([
+		'<h2>', venue.name, '</h2>',
+		'<p>',
+		venue.address, '<br />',
+	   	venue.city, ',', venue.state,
+		'</p>'
+	].join(' '));
+});
+
+</script>
+
+</body>
+</html>
