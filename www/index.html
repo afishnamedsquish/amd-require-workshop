@@ -9,21 +9,36 @@
 
 <script type="text/javascript" charset="utf-8">
 
-define('higher_ground', {
-	name: 'Higher Ground',
-	address: '1214 Williston Road',
-	city: 'Burlington',
-	state: 'Vermont'
+define('venues', function() {
+
+	return [
+		{
+			name: 'Higher Ground',
+			address: '1214 Williston Road',
+			city: 'Burlington',
+			state: 'Vermont'
+		},
+		{
+			name: 'Signal Kitchen',
+			address: '71 Main Street',
+			city: 'Burlington',
+			state: 'Vermont'
+		}
+	];
+
 });
 
-require(['higher_ground'], function(venue) {
-	document.write([
-		'<h2>', venue.name, '</h2>',
-		'<p>',
-		venue.address, '<br />',
-	   	venue.city, ',', venue.state,
-		'</p>'
-	].join(' '));
+require(['venues'], function(venues) {
+	for (x in venues) {
+		var venue = venues[x];
+		document.write([
+			'<h2>', venue.name, '</h2>',
+			'<p>',
+			venue.address, '<br />',
+			venue.city, ',', venue.state,
+			'</p>'
+		].join(' '));
+	}
 });
 
 </script>
