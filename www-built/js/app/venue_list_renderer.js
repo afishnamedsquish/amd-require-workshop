@@ -1,0 +1,1 @@
+define([],function(){var e=function(e){this.venues=e};return e.prototype.render=function(){var e=[];for(x in this.venues){var t=this.venues[x];e.push(["<h2>",t.name,"</h2>","<p>",t.address,"<br />",t.city,",",t.state,"</p>"].join(" "))}return e.join("")},e});

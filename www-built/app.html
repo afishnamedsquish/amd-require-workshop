@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>AMD Modules</title>
+</head>
+<body>
+<script type="text/javascript" src="js/lib/require.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+
+define('config', {
+	version: '1.0',
+	venues: [
+		{
+			name: 'Higher Ground',
+			address: '1214 Williston Road',
+			city: 'Burlington',
+			state: 'Vermont'
+		},
+		{
+			name: 'Signal Kitchen',
+			address: '71 Main Street',
+			city: 'Burlington',
+			state: 'Vermont'
+		}
+	]
+});
+
+define('venue_finder', ['config'], function(config) {
+	var VenueFinder = function() {
+		console.log('VenueFinder ' + this.version + ' initialized');
+	};
+
+	VenueFinder.prototype.version = config.version;
+	VenueFinder.prototype.venues = config.venues;
+
+	VenueFinder.prototype.findByName = function(name) {
+
+		for (x in this.venues) {
+			if (this.venues[x].name == name) {
+				return this.venues[x];
+			}
+		}
+
+		return false;
+	};
+
+	return VenueFinder;
+});
+
+require(['venue_finder'], function(VenueFinder) {
+	var venueFinder = new VenueFinder();
+	console.log(venueFinder.findByName('Higher Ground'));
+	console.log(venueFinder.findByName('The Non-Existant Arena'));
+});
+
+</script>
+
+</body>
+</html>
