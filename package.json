@@ -3,7 +3,8 @@
   "volo": {
     "baseUrl": "www/js/lib",
     "dependencies": {
-      "require": "github:jrburke/requirejs/2.1.6"
+      "require": "github:jrburke/requirejs/2.1.6",
+      "jquery": "github:jquery/jquery/2.0.2"
     }
   }
 }
