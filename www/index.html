@@ -8,39 +8,9 @@
 <script type="text/javascript" src="js/lib/require.js"></script>
 
 <script type="text/javascript" charset="utf-8">
-
-define('venues', function() {
-
-	return [
-		{
-			name: 'Higher Ground',
-			address: '1214 Williston Road',
-			city: 'Burlington',
-			state: 'Vermont'
-		},
-		{
-			name: 'Signal Kitchen',
-			address: '71 Main Street',
-			city: 'Burlington',
-			state: 'Vermont'
-		}
-	];
-
-});
-
-require(['venues'], function(venues) {
-	for (x in venues) {
-		var venue = venues[x];
-		document.write([
-			'<h2>', venue.name, '</h2>',
-			'<p>',
-			venue.address, '<br />',
-			venue.city, ',', venue.state,
-			'</p>'
-		].join(' '));
-	}
-});
-
+// Now files have been moved to js folder
+// No need for .js suffix
+require(['js/list_venues']);
 </script>
 
 </body>
