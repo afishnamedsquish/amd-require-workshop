@@ -1,4 +1,5 @@
-require(['js/venues'], function(venues) {
+// Note: Removed js/ since we are using data-main
+require(['venues'], function(venues) {
 	for (x in venues) {
 		var venue = venues[x];
 		document.write([

@@ -5,13 +5,11 @@
 	<title>AMD Modules</title>
 </head>
 <body>
-<script type="text/javascript" src="js/lib/require.js"></script>
-
-<script type="text/javascript" charset="utf-8">
-// Now files have been moved to js folder
-// No need for .js suffix
-require(['js/list_venues']);
-</script>
+<!--
+RequireJS automatically looks for a data-main attribute and loads the script (still no .js extension)
+This also has the effect of telling RequireJS to look for subsequent js files in the js/ folder (the folder the data-main file is held in)
+-->
+<script type="text/javascript" data-main="js/list_venues" src="js/lib/require.js"></script>
 
 </body>
 </html>
