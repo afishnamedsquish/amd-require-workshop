@@ -13,4 +13,8 @@ js/app.js
 js/lib/jquery.js
 js/data/venues.js
 js/app/venue_list_renderer.js
+js/lib/async.js
+async!http://maps.google.com/maps/api/js?sensor=true&amp;libraries=places
+js/lib/gmaps.js
+js/app/venue_mapper.js
 js/app.js
