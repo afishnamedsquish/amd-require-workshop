@@ -1,6 +1,3 @@
-//Wrapped in an outer function to preserve global this
-(function (root) { var amdExports; define(['async!http://maps.google.com/maps/api/js?sensor=true&amp;libraries=places'], function () { (function () {
-
 /*!
  * GMaps.js v0.4.3
  * http://hpneo.github.com/gmaps/
@@ -1969,9 +1966,3 @@ if (!Array.prototype.indexOf) {
       return -1;
   }
 }
-
-amdExports = GMaps;
-
-}.call(root));
-    return amdExports;
-}); }(this));

@@ -8,6 +8,12 @@ require.config({
 		jquery: "lib/jquery",
 		gmaps: "lib/gmaps",
 		async: "lib/async"
+	},
+	shim: {
+		gmaps: {
+            deps: ['async!http://maps.google.com/maps/api/js?sensor=false'],
+			exports: 'GMaps'
+		}
 	}
 });
 
