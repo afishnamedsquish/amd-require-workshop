@@ -4,7 +4,9 @@
     "baseUrl": "www/js/lib",
     "dependencies": {
       "require": "github:jrburke/requirejs/2.1.6",
-      "jquery": "github:jquery/jquery/2.0.2"
+      "jquery": "github:jquery/jquery/2.0.2",
+      "gmaps": "github:HPNeo/gmaps/0.4.3",
+      "async": "github:millermedeiros/requirejs-plugins/v1.0.2#src/async.js"
     }
   }
 }

@@ -8,12 +8,12 @@ define(function() {
 		for (x in this.venues) {
 			var venue = this.venues[x];
 			output.push([
-				'<h2>', venue.name, '</h2>',
+				'<h2 data-venue-id="', x, '">', venue.name, '</h2>',
 				'<p>',
 				venue.address, '<br />',
-				venue.city, ',', venue.state,
+				venue.city, ', ', venue.state,
 				'</p>'
-			].join(' '));
+			].join(''));
 		}
 
 		return output.join('');
