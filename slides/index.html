@@ -1,0 +1,132 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>AMD and RequireJS for Modular & Optimized Javascript</title>
+    
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab: 400,700' rel='stylesheet' type='text/css'>
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body class="impress-not-supported">
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div id="impress">
+
+    <div class="step slide" data-x="-3000" data-y="-1500">
+		<h2>Creating & Optimizing<br />Modular Javascript Apps<br /> with AMD and RequireJS</h2>
+		<p>Ben Glassman</p>
+		<p><a href="https://github.com/afishnamedsquish/amd-require-workshop">https://github.com/afishnamedsquish/amd-require-workshop</a></p>
+    </div>
+
+    <div id="title" class="step" data-x="-5000" data-y="200" data-scale="4">
+		<h2>The Problem</h2>
+		<img src="images/dependencies.png" alt="Dependencies" />
+    </div>
+
+    <div class="step" data-x="-1000" data-y="200" data-scale="4">
+		<ul>
+			<li>Some scripts need to load first</li>
+			<li>Some scripts add other scripts (google analytics)</li>
+			<li>Lots of downloads for users</li>
+			<li>Creates a lot of global variables (jQuery, $, etc.)</li>
+			<li>Difficult to track dependencies</li>
+			<li>Doesn't encourage code re-use</li>
+		</ul>
+    </div>
+
+    <div class="step" data-x="850" data-y="2000" data-rotate="90" data-scale="5">
+		<h2>The Solution</h2>
+		<p>Lets Javascript load your Javascript.</p>
+		<img src="images/yo-dawg.jpg" alt="Yo Dawg..." />
+    </div>
+
+    <div class="step" data-x="850" data-y="6000" data-rotate="90" data-scale="5">
+		<h2>What is AMD?</h2>
+		<p>Asynchronous Module Definitions.<br />
+	   	A scary acronym for 2 javascript functions: <strong>define</strong> and <strong>require</strong>.</p>
+		<p><strong>define</strong> a module (usually a function)</p>
+		<p><strong>require</strong> your dependencies (which functions do you want to load)</p>
+    </div>
+
+    <div class="step" data-x="850" data-y="11000" data-rotate="90" data-scale="5">
+		<h2>What is RequireJS</h2>
+		<p>A javascript library that provides an implementation of AMD.</p>
+		<p>In other words, it provides those two function:<br />
+		<strong>define</strong> and <strong>require</strong></p>
+    </div>
+
+    <div class="step center" data-x="-3000" data-y="14000" data-rotate="180" data-scale="6">
+		<h2>Step 1: Basic Example of<br />define() and require()</h2>
+		<p>We <strong>define</strong> a module named <strong>higher_ground</strong> which contains information about the venue.</p>
+		<p>We <strong>require</strong> our <strong>higher_ground</strong> module and use it to render the venue information.</p>
+    </div>
+
+    <div class="step center" data-x="-3000" data-y="10000" data-rotate="180" data-scale="6">
+		<h2>Step 2: define() Returning a Function</h2>
+		<p>Our <strong>define</strong> now returns a function, which gives us an array of venues.</p>
+		<p><small>Tip: <strong>git diff step1 step2</strong> to see the difference</small></p>
+    </div>
+
+    <div class="step center" data-x="-3000" data-y="6000" data-rotate="180" data-scale="6">
+		<h2>Step 3: define() in external file</h2>
+		<p>In this step, we move the <strong>define</strong> call and module to a separate file, and load it with <strong>require</strong>.</p>
+		<p><small>Note: No need to specify the .js extension</small></p>
+    </div>
+
+    <div class="step center" data-x="-9000" data-y="6000" data-rotate="180" data-scale="6">
+		<h2>Step 4: Load file using<br />
+			data-main attribute</h2>
+		<p>Same as code from step3, but this time we use the <strong>data-main</strong> attribute on the script tag and RequireJS automatically requires our file.</p>
+    </div>
+
+    <div class="step center" data-x="-9000" data-y="10000" data-rotate="180" data-scale="6">
+		<h2>Step 5: Configure our module locations in a single place</h2>
+		<p>Instead of needing to repeat the full path to a module when requiring it, we can use <strong>require.config</strong> to define where all our files are located and use a shortcut.</p>
+		<p><small>Note: No need to specify the .js extension</small></p>
+    </div>
+
+    <div class="step center" data-x="-9000" data-y="14000" data-rotate="180" data-scale="6">
+		<h2>Step 6: Add some styles and optimize!</h2>
+		<p>Loading many separate javascript files isn't great for site speed, but RequireJS comes with an optimizer that will combine and compress your modules together.</p>
+		<p><small>Hint: Check out the version of the app in the www-built folder</small></p>
+    </div>
+
+    <div class="step center" data-x="2824" data-y="3325" data-rotate="200">
+		<h2>Step 7: Add GMaps library with Google Maps to show venue maps</h2>
+		<p>Shows an example of leveraging mapping functionality from multiple external libraries.<br />
+		GMaps depends on Google Maps and Google Maps is externally hosted and asynchronous (it loads other libraries).</p>
+		<p><small>Hint: Take a look at the code in js/lib/gmaps.js to see how we define a dependency on an async cdn library (google maps).</small></p>
+    </div>
+
+    <div class="step center" data-x="1125" data-y="2725" data-rotate="200">
+		<h2>Summary</h2>
+		<p>AMD and RequireJS let you <strong>define</strong> re-usable modules of code and <strong>require</strong> them as dependencies in other modules.</p>
+		<p>This is great for code re-use and also when collaborating you can easily share code when it uses the AMD format.</p>
+	</div>
+
+    <div class="step center" data-x="2125" data-y="7725" data-rotate="90">
+		<img src="images/logo-vermont-design-works.png" alt="Vermont Design Works" />
+		<p>We are a diverse team of creative designers & developers collaborating with clients from the Flynn Center to Vermont Sustainable Jobs Fund.</p>
+		<p>We are an agile development firm leveraging cutting edge tools like Symfony 2 to build complex, custom web applications.</p>
+		<p><strong>... and We're Hiring Developers!</strong></p>
+	</div>
+
+    <div id="overview" class="step" data-x="-1000" data-y="7000" data-scale="20">
+    </div>
+
+</div>
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+
+<script src="js/impress.js"></script>
+<script>impress().init();</script>
+
+</body>
+</html>
